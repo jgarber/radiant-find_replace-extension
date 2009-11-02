@@ -6,14 +6,14 @@ class FindAndReplaceExtension < Radiant::Extension
   description "Describe your extension here"
   url "http://yourwebsite.com/find_and_replace"
   
-  # define_routes do |map|
-  #   map.namespace :admin, :member => { :remove => :get } do |admin|
-  #     admin.resources :find_and_replace
-  #   end
-  # end
+  define_routes do |map|
+    map.namespace :admin, :member => { :remove => :get } do |admin|
+      admin.resources :replacements
+    end
+  end
   
   def activate
-    # admin.tabs.add "Find And Replace", "/admin/find_and_replace", :after => "Layouts", :visibility => [:all]
+    admin.tabs.add "Find And Replace", "/admin/replacements", :after => "Layouts", :visibility => [:admin]
     
     Page.send :include, FindAndReplace::PageExtensions
   end
