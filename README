@@ -1,3 +1,5 @@
 = Find And Replace
 
-Description goes here
+Finds an exact string of text in the contents of a page.  Optionally replaces it with another string of text.
+
+Thanks to Online Star Register (http://osr.org) for sponsoring development.

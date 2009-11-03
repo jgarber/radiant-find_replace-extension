@@ -1,0 +1,28 @@
+%h1 Find and Replace
+
+%p 
+  = "Enter a string to replace all occurrences of \"#{h(@query)}\"."
+
+- form_tag(admin_replacements_path) do
+  %p
+    %label{:for => 'replacement'} Replace:
+    %input{:type => 'hidden', :name => 'query', :value => @query}
+    %input{:type => 'text', :name => 'replacement', :value => @replacement, :size => '15', :alt => 'replace'}
+    %input{:type => 'submit', :value => "Replace"}
+  %table.index
+    %thead
+      %tr
+        %th Page
+        %th
+          Containing: 
+          %span#query=h @query
+        %th
+          Replacement:
+    %tbody
+      - @pages.each do |page|
+        - page.parts.each do |part|
+          %tr.part
+            %td= link_to page.title, edit_admin_page_path(page)
+            %td.find
+              = truncate_and_highlight(part.content, @query)
+            %td.replace

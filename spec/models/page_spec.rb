@@ -19,11 +19,9 @@ describe Page, 'find and replace' do
     q = "Body"
     found_pages = Page.find_content(q)
     found_pages.should be_empty
-  end
-  
-  it "should not find query in page titles" do
-    q = "Another"
+
+    q = "Child"
     found_pages = Page.find_content(q)
-    found_pages.should be_empty
+    found_pages.size.should == 4
   end
 end
