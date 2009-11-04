@@ -1,7 +1,7 @@
 # Uncomment this if you reference any of your controllers in activate
 # require_dependency 'application'
 
-class FindAndReplaceExtension < Radiant::Extension
+class FindReplaceExtension < Radiant::Extension
   version "1.0"
   description "Describe your extension here"
   url "http://yourwebsite.com/find_and_replace"
@@ -15,7 +15,7 @@ class FindAndReplaceExtension < Radiant::Extension
   def activate
     admin.tabs.add "Find And Replace", "/admin/replacements", :after => "Layouts", :visibility => [:admin]
     
-    Page.send :include, FindAndReplace::PageExtensions
+    Page.send :include, FindReplace::PageExtensions
   end
   
   def deactivate

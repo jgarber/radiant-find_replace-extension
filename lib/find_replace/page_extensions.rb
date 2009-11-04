@@ -1,4 +1,4 @@
-module FindAndReplace::PageExtensions
+module FindReplace::PageExtensions
   def self.included(base)
     base.extend ClassMethods
   end
