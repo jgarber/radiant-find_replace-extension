@@ -18,9 +18,11 @@ class Admin::ReplacementsController < ApplicationController
     @replacement = params[:replacement].to_s
     @pages = Page.find_content(@query)
     @pages.each do |page|
+      page = page.current if page.respond_to?(:current)
       page.parts.each do |part|
-        part.update_attributes(:content => part.content.gsub(@query, @replacement))
+        part.content = part.content.gsub(@query, @replacement)
       end
+      page.save!
     end
     announce_replaced
     redirect_to(:controller => :pages)
