@@ -16,8 +16,6 @@
         %th
           Containing: 
           %span#query=h @query
-        %th
-          Replacement:
     %tbody
       - @pages.each do |page|
         - page.parts.each do |part|
@@ -25,4 +23,3 @@
             %td= link_to page.title, edit_admin_page_path(page)
             %td.find
               = truncate_and_highlight(part.content, @query)
-            %td.replace
