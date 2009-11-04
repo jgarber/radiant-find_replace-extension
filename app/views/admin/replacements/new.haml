@@ -9,6 +9,8 @@
     %input{:type => 'hidden', :name => 'query', :value => @query}
     %input{:type => 'text', :name => 'replacement', :value => @replacement, :size => '15', :alt => 'replace'}
     %input{:type => 'submit', :value => "Replace"}
+    or
+    = link_to 'Cancel', admin_pages_url
   %table.index
     %thead
       %tr
