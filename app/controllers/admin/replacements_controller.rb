@@ -19,8 +19,10 @@ class Admin::ReplacementsController < ApplicationController
     @pages = Page.find_content(@query)
     @pages.each do |page|
       page = page.current if page.respond_to?(:current)
+      page.parts(true)
       page.parts.each do |part|
         part.content = part.content.gsub(@query, @replacement)
+        part.save!
       end
       page.save!
     end
