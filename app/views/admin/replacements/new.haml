@@ -8,7 +8,7 @@
     %label{:for => 'replacement'} Replace:
     %input{:type => 'hidden', :name => 'query', :value => @query}
     %input{:type => 'text', :name => 'replacement', :value => @replacement, :size => '15', :alt => 'replace'}
-    %input{:type => 'submit', :value => "Replace"}
+    = submit_tag("Replace", {:confirm => "Are you sure you want to replace?"})
     or
     = link_to 'Cancel', admin_pages_url
   %table.index
