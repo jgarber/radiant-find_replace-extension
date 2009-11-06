@@ -26,6 +26,7 @@ class Admin::ReplacementsController < ApplicationController
       end
       page.save!
     end
+    cache.clear
     announce_replaced
     redirect_to(:controller => :pages)
   end
