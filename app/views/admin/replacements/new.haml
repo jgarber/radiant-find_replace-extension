@@ -1,16 +1,26 @@
 %h1 Find and Replace
 
 %p 
-  = "Enter a string to replace all occurrences of \"#{h(@query)}\"."
+  = "Enter a replacement string for all occurrences of \"#{h(@query)}.\""
 
 - form_tag(admin_replacements_path) do
-  %p
-    %label{:for => 'replacement'} Replace:
-    %input{:type => 'hidden', :name => 'query', :value => @query}
-    %input{:type => 'text', :name => 'replacement', :value => @replacement, :size => '15', :alt => 'replace'}
+  %table.fieldset{:cellpadding=>0, :cellspacing=>0, :border=>0}
+    %tr
+      %th.label
+        = label_tag "query", "Find:"
+      %td
+        = text_field_tag "query", @query, :size => '15', :disabled => true
+        = hidden_field_tag "query", @query
+    %tr
+      %th.label
+        = label_tag "replacement", "Replace:"
+      %td
+        = text_field_tag "replacement", @replacement, :size => '15', :alt => "replace"
+  %p.buttons
     = submit_tag("Replace", {:confirm => "Are you sure you want to replace?"})
     or
-    = link_to 'Cancel', admin_pages_url
+    = link_to 'Cancel', admin_pages_path
+  %h3 Content to be replaced:
   %table.index
     %thead
       %tr

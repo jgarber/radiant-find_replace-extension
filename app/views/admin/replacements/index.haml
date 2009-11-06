@@ -1,11 +1,15 @@
-%h1 Find
+%h1 Find and Replace
 
 %p Enter a query to find all occurrences of an exact (case-sensitive) string in page content. You will then be able to replace those occurrences with another string.
 
 - form_tag(new_admin_replacement_path, :method => :get) do
-  %p
-    %label{:for => 'q'} Find:
-    %input{:type => 'text', :name => 'q', :value => params[:q], :size => '15', :alt => 'search'}
-    %input{:type => 'submit', :value => "Find"}
+  %table.fieldset{:cellpadding=>0, :cellspacing=>0, :border=>0}
+    %tr
+      %th.label
+        = label_tag "q", "Find:"
+      %td
+        = text_field_tag "q", params[:q], :size => '15', :alt => "search", :class => "textbox"
+  %p.buttons
+    %input{:type => "submit", :value => "Find"}
     or
-    = link_to 'Cancel', admin_pages_url
+    = link_to 'Cancel', admin_pages_path
