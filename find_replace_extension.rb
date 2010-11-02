@@ -4,7 +4,7 @@
 class FindReplaceExtension < Radiant::Extension
   version "1.0"
   description "Describe your extension here"
-  url "http://yourwebsite.com/find_and_replace"
+  url "http://yourwebsite.com/find_replace"
   
   define_routes do |map|
     map.namespace :admin, :member => { :remove => :get } do |admin|
